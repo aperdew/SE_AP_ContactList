@@ -1,3 +1,4 @@
+package contactlist.models;
 
 public class contactModel {
 
@@ -7,13 +8,7 @@ public class contactModel {
 	private String email;
 	private String address;
 	
-	public contactModel(String firstName, String lastName,
-			String phone, String email, String address){
-		setFirstName(firstName);
-		setLastName(lastName);
-		setPhone(phone);
-		setEmail(email);
-		setAddress(address);		
+	public contactModel(){		
 	}
 	
 	public String getFirstName(){
