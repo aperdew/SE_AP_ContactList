@@ -1,4 +1,4 @@
-package contactlist.accessor;
+package contactlist.pages;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,14 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/ContactAccessor")
-public class ContactAccessor extends HttpServlet{
+public class ContactList extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	static String             url              = "jdbc:mysql://ec2aperdew.ddns.net:3306/contactList";
 	static String             user             = "Remote";
 	static String             password         = "123";
 	static Connection         connection       = null;
 	
-	public ContactAccessor(){
+	public ContactList(){
 		super();
 	}
 	
@@ -70,12 +70,7 @@ public class ContactAccessor extends HttpServlet{
 	        	contact.setAddress(rs.getString("ADDRESS"));
 	            contactList.add(contact);
 	         }
-	         String testString="dsfjlkdf";
-	         request.setAttribute("testString", testString);
 	         response.getWriter().print(contactList);
-	         
-	         RequestDispatcher reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("Test.jsp");
-	         reqDispatcher.forward(request, response);
 	      } catch (SQLException e) {
 	         e.printStackTrace();
 	      }            		
