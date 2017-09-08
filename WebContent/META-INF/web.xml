@@ -6,13 +6,13 @@
     version="3.0">
     
     <servlet>
-    	<servlet-name>contactAccessor</servlet-name>
-    	<servlet-class>ContactAccessor</servlet-class>
+    	<servlet-name>contactList</servlet-name>
+    	<servlet-class>ContactList</servlet-class>
     </servlet>
     
     <servlet-mapping>
-    	<servlet-name>contactAccessor</servlet-name>
-    	<url-pattern>/contactAccessor</url-pattern>
+    	<servlet-name>contactList</servlet-name>
+    	<url-pattern>/contactList</url-pattern>
     </servlet-mapping>
 
 </web-app>

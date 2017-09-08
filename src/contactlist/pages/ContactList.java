@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/ContactAccessor")
+@WebServlet("/ContactList")
 public class ContactList extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	static String             url              = "jdbc:mysql://ec2aperdew.ddns.net:3306/contactList";
@@ -55,14 +55,12 @@ public class ContactList extends HttpServlet{
 	      try {
 	         String selectSQL = "SELECT * FROM contacts;";
 	         //String theUserName = "Aaron";
-	         //response.getWriter().println(selectSQL + "<br>");
-	         response.getWriter().println("------------------------------------------<br>");
 	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
 	         //preparedStatement.setString(1, theUserName);
 	         ResultSet rs = preparedStatement.executeQuery();
-	         contactModel contact = new contactModel();
 	         while (rs.next()) {
-	        	
+
+		        contactModel contact = new contactModel();
 	        	contact.setFirstName(rs.getString("FIRSTNAME"));
 	        	contact.setLastName(rs.getString("LASTNAME"));
 	        	contact.setPhone(rs.getString("PHONE"));
@@ -70,7 +68,12 @@ public class ContactList extends HttpServlet{
 	        	contact.setAddress(rs.getString("ADDRESS"));
 	            contactList.add(contact);
 	         }
-	         response.getWriter().print(contactList);
+	         response.getWriter().print("dfsfdf");
+	         
+	         //put all of the info from SQL into table
+	         //make buttons for navigating to new contact, edit contacts, and 
+	         //search contacts
+	         
 	      } catch (SQLException e) {
 	         e.printStackTrace();
 	      }            		
