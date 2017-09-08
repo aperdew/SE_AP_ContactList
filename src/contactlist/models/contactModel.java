@@ -7,6 +7,7 @@ public class contactModel {
 	private String phone;
 	private String email;
 	private String address;
+	private int id = -1;
 	
 	public contactModel(){		
 	}
@@ -49,5 +50,13 @@ public class contactModel {
 	
 	public void setAddress(String address){
 		this.address = address;
+	}
+	
+	public int getId(){
+		return id;
+	}
+	
+	public void setId(int id){
+		this.id = id;
 	}
 }
