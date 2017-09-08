@@ -1,0 +1,19 @@
+@CHARSET "ISO-8859-1";
+.CL-NewContact--Container{
+	margin:1em;
+}
+
+
+.CL-NewContact--Label{
+	display:block;
+	text-align: right;
+	float:left;
+}
+
+.CL-NewContact--Title{
+	margin-bottom:1em;
+}
+
+.CL-Banner--Link{
+	float:left;
+}
