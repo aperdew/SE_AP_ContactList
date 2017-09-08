@@ -66,6 +66,7 @@ public class DisplayAll_Insert extends HttpServlet{
 	        	contact.setPhone(rs.getString("PHONE"));
 	        	contact.setEmail(rs.getString("EMAIL"));
 	        	contact.setAddress(rs.getString("ADDRESS"));
+	        	contact.setId(rs.getInt("id"));
 	            contactList.add(contact);
 	         }
 	         
