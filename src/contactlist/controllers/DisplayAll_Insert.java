@@ -1,4 +1,4 @@
-package contactlist.pages;
+package contactlist.controllers;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,14 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/ContactList")
-public class ContactList extends HttpServlet{
+public class DisplayAll_Insert extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	static String             url              = "jdbc:mysql://ec2aperdew.ddns.net:3306/contactList";
 	static String             user             = "Remote";
 	static String             password         = "123";
 	static Connection         connection       = null;
 	
-	public ContactList(){
+	public DisplayAll_Insert(){
 		super();
 	}
 	
@@ -68,7 +68,9 @@ public class ContactList extends HttpServlet{
 	        	contact.setAddress(rs.getString("ADDRESS"));
 	            contactList.add(contact);
 	         }
-	         response.getWriter().print("dfsfdf");
+	         
+	         request.setAttribute("contactList", contactList);
+	         request.getRequestDispatcher("/ContactList.jsp");
 	         
 	         //put all of the info from SQL into table
 	         //make buttons for navigating to new contact, edit contacts, and 
@@ -79,6 +81,42 @@ public class ContactList extends HttpServlet{
 	      }            		
 	}
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	   response.setContentType("text/html;charset=UTF-8");
+	   
+	   String firstName = request.getParameter("firstName");
+	   String lastName = request.getParameter("lastName");
+	   String phone = request.getParameter("phone");
+	   String email = request.getParameter("email");
+	   String address = request.getParameter("address");
+	     
+	      try {
+	    	  Class.forName("com.mysql.jdbc.Driver");
+	      } catch (ClassNotFoundException e) {
+	    	  e.printStackTrace();
+	      }
+   		connection = null;
+	      try {
+	         connection = DriverManager.getConnection(url, user, password);
+	      } catch (SQLException e) {
+	    	  System.out.print("Bad URL");
+	         e.printStackTrace();
+	      }
+	      if (connection != null) {
+	      } else {
+	         System.out.println("Failed to make connection!");
+	      }
+	      try {
+	         String selectSQL = "INSERT INTO contacts(FIRSTNAME, LASTNAME, PHONE, EMAIL, ADDRESS)"
+	         		+ "VALUES ('" + firstName + "', '" + lastName + "', '" + phone + "', '" + email +"', '" + address +"');";
+	         //String theUserName = "Aaron";
+	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+	         //preparedStatement.setString(1, theUserName);
+	         preparedStatement.executeUpdate();
+	        	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } 
+	      
 	      doGet(request, response);
 	   }
 }

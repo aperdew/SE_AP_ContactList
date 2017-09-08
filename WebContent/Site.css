@@ -5,6 +5,7 @@
 
 
 .CL-NewContact--Label{
+	display:block;
 	text-align: right;
 	float:left;
 }

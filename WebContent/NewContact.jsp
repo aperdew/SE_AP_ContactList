@@ -11,32 +11,40 @@
 <title>New Contact</title>
 </head>
 <body>
-<%@include file="Banner.html" %>
+<%@include file="html/Banner.html" %>
 		
 	<div class ="container CL-NewContact--Container">
 	<h1 class = "CL-NewContact--Title">New Contact</h1>
-		<form action="ContactList" method="post" class="form-horizontal">
+		<form action="DisplayAll_Insert" method="POST" class="form-horizontal">
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="firstName">First Name:</label>
-				<input type="text" class="form-control col-sm-10" id="firstName" name="firstName">
+				<div class = "col-sm-10">
+					<input type="text" class="form-control" id="firstName" name="firstName">
+				</div>
 			</div>
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="lastName">Last Name:</label>
-				<input type="text" class="form-control col-sm-10" id="lastName" name="lastName">
+				<div class = "col-sm-10">
+					<input type="text" class="form-control" id="lastName" name="lastName">
+				</div>
 			</div>
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="phone">Phone Number:</label>
-				<input type="text" class="form-control col-sm-10" id="phone" name="phone">
+				<div class = "col-sm-10">
+					<input type="text" class="form-control" id="phone" name="phone">
+				</div>
 			</div>
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="email">Email:</label>
-				<input type="text" class="form-control col-sm-10" id="email" name="email">
+				<div class = "col-sm-10">
+					<input type="text" class="form-control" id="email" name="email">
+				</div>
 			</div>
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="address">Address:</label>
-				<input type="text" class="form-control col-sm-10" id="address" name="address">
-			</div>
-			<div class="row form-group">
+				<div class = "col-sm-10">
+					<input type="text" class="form-control" id="address" name="address">
+				</div>
 			</div>
 			<div class="row form-group">
 				<div class="col-sm-offset-11">
