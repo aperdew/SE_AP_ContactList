@@ -15,7 +15,7 @@
 		
 	<div class ="container CL-NewContact--Container">
 	<h1 class = "CL-NewContact--Title">New Contact</h1>
-		<form action="Contacts" method="POST" class="form-horizontal">
+		<form action="Insert" method="POST" class="form-horizontal">
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="firstName">First Name:</label>
 				<div class = "col-sm-10">
