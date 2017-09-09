@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/")
+@WebServlet("/Contacts")
 public class DisplayAll_Insert extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	static String             url              = "jdbc:mysql://ec2aperdew.ddns.net:3306/contactList";
