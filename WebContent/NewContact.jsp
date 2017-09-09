@@ -47,8 +47,9 @@
 				</div>
 			</div>
 			<div class="row form-group">
-				<div class="col-sm-offset-11">
-					<input class="btn btn-default btn-warning" type="submit" value="Submit">
+				<div class="col-sm-offset-10">
+					<a href="Contacts" class = "btn btn-default btn-danger">Cancel</a>
+					<input class="btn btn-default btn-success" type="submit" value="Submit">
 				</div>
 			</div>
 		</form>
