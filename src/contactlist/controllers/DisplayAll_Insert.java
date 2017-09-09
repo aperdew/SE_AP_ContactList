@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/ContactList")
+@WebServlet("/")
 public class DisplayAll_Insert extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	static String             url              = "jdbc:mysql://ec2aperdew.ddns.net:3306/contactList";
@@ -34,6 +34,7 @@ public class DisplayAll_Insert extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	      response.setContentType("text/html;charset=UTF-8");
+	      response.getWriter().println("getting all contacts");
 	      List<contactModel> contactList = new ArrayList<>();
 	     
 	      try {
@@ -71,7 +72,9 @@ public class DisplayAll_Insert extends HttpServlet{
 	         }
 	         
 	         request.setAttribute("contactList", contactList);
-	         request.getRequestDispatcher("/ContactList.jsp");
+	         RequestDispatcher rd;
+	         rd = request.getRequestDispatcher("/ContactList.jsp");
+	         rd.forward(request, response);
 	         
 	         //put all of the info from SQL into table
 	         //make buttons for navigating to new contact, edit contacts, and 
@@ -83,6 +86,7 @@ public class DisplayAll_Insert extends HttpServlet{
 	}
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   response.setContentType("text/html;charset=UTF-8");
+	   response.getWriter().println("adding new contact");
 	   
 	   String firstName = request.getParameter("firstName");
 	   String lastName = request.getParameter("lastName");
@@ -117,7 +121,7 @@ public class DisplayAll_Insert extends HttpServlet{
 	      } catch (SQLException e) {
 	         e.printStackTrace();
 	      } 
-	      
+	      response.getWriter().println("finished adding contact");
 	      doGet(request, response);
 	   }
 }

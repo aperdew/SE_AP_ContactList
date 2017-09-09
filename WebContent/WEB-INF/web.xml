@@ -6,13 +6,13 @@
     version="3.0">
     
     <servlet>
-    	<servlet-name>contactList</servlet-name>
-    	<servlet-class>ContactList</servlet-class>
+    	<servlet-name>DisplayAll_Insert</servlet-name>
+    	<servlet-class>DisplayAll_Insert</servlet-class>
     </servlet>
     
     <servlet-mapping>
-    	<servlet-name>contactList</servlet-name>
-    	<url-pattern>/contactList</url-pattern>
+    	<servlet-name>DisplayAll_Insert</servlet-name>
+    	<url-pattern>/Contact</url-pattern>
     </servlet-mapping>
 
 </web-app>
