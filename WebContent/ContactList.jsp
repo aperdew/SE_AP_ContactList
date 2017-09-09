@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src="ContactList.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Contacts</title>
 </head>
@@ -47,7 +48,7 @@
 						<td class ="col-sm-3"></td>
 						<td>
 							<button class="glyphicon glyphicon-pencil btn btn-primary"></button>
-							<button class="glyphicon glyphicon-trash btn btn-danger"></button>
+							<button class="glyphicon glyphicon-trash btn btn-danger" onclick="deleteById(${model.getId()})"></button>
 						</td>
 					</tr>					
 				</c:forEach>
