@@ -8,6 +8,6 @@ var deleteById = function(id){
 			id : id
 		}
 	}).then(function(){
-		window.location.href="/ContactList/Delete_Search";
+		window.location.href="/ContactList/Contacts";
 	});
 }
