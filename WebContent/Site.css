@@ -7,7 +7,7 @@
 .CL-NewContact--Label{
 	display:block;
 	text-align: right;
-	float:left;
+	float:left;	
 }
 
 .CL-NewContact--Title{
@@ -16,4 +16,23 @@
 
 .CL-Banner--Link{
 	float:left;
+}
+
+.CL-ContactList--Search-Form{
+	float:left;
+	white-space:nowrap;
+}
+
+.CL-ContactList--Search-Input{	
+	width: 10em !important;
+	height: 33.24px !important;
+	bottom:-1px;
+}
+
+.CL-ContactList--Button-Panel{
+	white-space:nowrap;
+}
+
+.CL-ContactList--New-Contact-Button{
+	margin-left: 0.250em;
 }

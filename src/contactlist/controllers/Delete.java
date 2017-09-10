@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Delete_Edit
  */
-@WebServlet("/Delete_Search")
-public class Delete_Search extends HttpServlet {
+@WebServlet("/Delete")
+public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static String             url              = "jdbc:mysql://ec2aperdew.ddns.net:3306/contactList";
 	static String             user             = "Remote";
@@ -27,7 +27,7 @@ public class Delete_Search extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Delete_Search() {
+    public Delete() {
         super();
         // TODO Auto-generated constructor stub
     }

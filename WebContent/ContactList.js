@@ -3,7 +3,7 @@ var deleteById = function(id){
 	
 	$.ajax({
 		type: "POST",
-		url: "/ContactList/Delete_Search",
+		url: "/ContactList/Delete",
 		data:{
 			id : id
 		}
