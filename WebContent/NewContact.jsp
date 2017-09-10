@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="Site.css"/>
@@ -19,25 +19,25 @@
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="firstName">First Name:</label>
 				<div class = "col-sm-10">
-					<input type="text" class="form-control" id="firstName" name="firstName">
+					<input type="text" class="form-control" id="firstName" name="firstName" required>
 				</div>
 			</div>
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="lastName">Last Name:</label>
 				<div class = "col-sm-10">
-					<input type="text" class="form-control" id="lastName" name="lastName">
+					<input type="text" class="form-control" id="lastName" name="lastName" required>
 				</div>
 			</div>
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="phone">Phone Number:</label>
 				<div class = "col-sm-10">
-					<input type="text" class="form-control" id="phone" name="phone">
+					<input type="tel" class="form-control" id="phone" name="phone">
 				</div>
 			</div>
 			<div class="row form-group">
 				<label class="control-label col-sm-2 CL-NewContact--Label" for="email">Email:</label>
 				<div class = "col-sm-10">
-					<input type="text" class="form-control" id="email" name="email">
+					<input type="email" class="form-control" id="email" name="email">
 				</div>
 			</div>
 			<div class="row form-group">
@@ -47,9 +47,9 @@
 				</div>
 			</div>
 			<div class="row form-group">
-				<div class="col-sm-offset-10">
-					<a href="Contacts" class = "btn btn-default btn-danger">Cancel</a>
+				<div class="col-sm-offset-10">					
 					<input class="btn btn-default btn-success" type="submit" value="Submit">
+					<a href="Contacts" class = "btn btn-default btn-danger">Cancel</a>
 				</div>
 			</div>
 		</form>
