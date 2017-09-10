@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-	<link rel="stylesheet" href="Site.css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Site.css"/>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script type="text/javascript" src="ContactList.js"></script>
@@ -31,10 +31,20 @@
 				<th class ="col-sm-2">Last Name</th>
 				<th class ="col-sm-2">Phone Number</th>
 				<th class ="col-sm-3"></th>
-				<th>
+				<th class ="col-sm-3 CL-ContactList--Button-Panel">
+					<div class="pull-right">
+						<form class="CL-ContactList--Search-Form" action="Search" method=GET>
+							<div class = "input-group">
+								<input type="text" name="searchQuery" class =" CL-ContactList--Search-Input form-control"
+									placeholder="Search Contacts">
+								<span class ="input-group-btn">
+									<button type="submit" class="glyphicon glyphicon-search btn btn-info"></button>
+								</span>
+							</div>
+						</form>
+						<a href="NewContact.jsp" class="glyphicon glyphicon-plus btn btn-success CL-ContactList--New-Contact-Button"></a>
+					</div>
 					
-					<button class="glyphicon glyphicon-search btn btn-info"></button>
-					<a href="NewContact.jsp" class="glyphicon glyphicon-plus btn btn-success"></a>
 				</th>
 			</tr>
 		</thead>
@@ -46,9 +56,11 @@
 						<td class ="col-sm-2">${model.getLastName()}</td>
 						<td class ="col-sm-2">${model.getPhone()}</td>
 						<td class ="col-sm-3"></td>
-						<td>
-							<button class="glyphicon glyphicon-pencil btn btn-primary"></button>
-							<button class="glyphicon glyphicon-trash btn btn-danger" onclick="deleteById(${model.getId()})"></button>
+						<td class ="col-sm-3">
+							<div class="pull-right">
+								<button class="glyphicon glyphicon-pencil btn btn-primary"></button>
+								<button class="glyphicon glyphicon-trash btn btn-danger" onclick="deleteById(${model.getId()})"></button>
+							</div>							
 						</td>
 					</tr>					
 				</c:forEach>
