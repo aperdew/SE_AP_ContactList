@@ -82,7 +82,7 @@ public class Insert extends HttpServlet {
 		      } 
 		      response.getWriter().println("finished adding contact");		      
 		      RequestDispatcher rd;
-		      rd = request.getRequestDispatcher("/Contacts");
+		      rd = request.getRequestDispatcher("Contacts");
 		      rd.forward(request, response);
 	}
 

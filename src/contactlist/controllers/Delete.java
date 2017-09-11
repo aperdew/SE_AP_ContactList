@@ -75,7 +75,7 @@ public class Delete extends HttpServlet {
 	         e.printStackTrace();
 	      } 
 	      RequestDispatcher rd;
-	      rd = request.getRequestDispatcher("/Contacts");
+	      rd = request.getRequestDispatcher("Contacts");
 	      rd.forward(request, response);
 	      response.getWriter().println("finished adding contact");
 	   }
