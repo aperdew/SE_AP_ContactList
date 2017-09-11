@@ -30,7 +30,8 @@
 				<th class ="col-sm-2">First Name</th>
 				<th class ="col-sm-2">Last Name</th>
 				<th class ="col-sm-2">Phone Number</th>
-				<th class ="col-sm-3"></th>
+				<th class ="col-sm-2">Email</th>
+				<th class ="col-sm-1"></th>
 				<th class ="col-sm-3 CL-ContactList--Button-Panel">
 					<div class="pull-right">
 						<form class="CL-ContactList--Search-Form" action="Search" method=GET>
@@ -55,7 +56,8 @@
 						<td class ="col-sm-2">${model.getFirstName()}</td>
 						<td class ="col-sm-2">${model.getLastName()}</td>
 						<td class ="col-sm-2">${model.getPhone()}</td>
-						<td class ="col-sm-3"></td>
+						<td class ="col-sm-2">${model.getEmail()}</td>
+						<td class ="col-sm-1"></td>
 						<td class ="col-sm-3">
 							<div class="pull-right">
 								<form action="GetById" method="GET" class="CL-ContactList--Edit-Form">
