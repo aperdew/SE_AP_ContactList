@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,11 +16,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import contactlist.models.contactModel;
+
 /**
- * Servlet implementation class Delete_Edit
+ * Servlet implementation class GetById
  */
-@WebServlet("/Delete")
-public class Delete extends HttpServlet {
+@WebServlet("/GetById")
+public class GetById extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static String             url              = "jdbc:mysql://ec2aperdew.ddns.net:3306/contactList";
 	static String             user             = "Remote";
@@ -27,7 +32,7 @@ public class Delete extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Delete() {
+    public GetById() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,14 +41,6 @@ public class Delete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		String id = request.getParameter("id");
 	     
@@ -52,7 +49,7 @@ public class Delete extends HttpServlet {
 	      } catch (ClassNotFoundException e) {
 	    	  e.printStackTrace();
 	      }
-   		connection = null;
+    		connection = null;
 	      try {
 	         connection = DriverManager.getConnection(url, user, password);
 	      } catch (SQLException e) {
@@ -64,21 +61,44 @@ public class Delete extends HttpServlet {
 	         System.out.println("Failed to make connection!");
 	      }
 	      try {
-	         String selectSQL = "DELETE FROM contacts "
+	         String selectSQL = "SELECT * FROM contacts "
 	         		+ "WHERE id = "+id+";";
 	         //String theUserName = "Aaron";
 	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
 	         //preparedStatement.setString(1, theUserName);
-	         preparedStatement.executeUpdate();
-	        	         
+	         ResultSet rs = preparedStatement.executeQuery();	        	 
+	         contactModel contact = new contactModel();
+	         while (rs.next()) {
+	        	 
+	        	contact.setFirstName(rs.getString("FIRSTNAME"));
+	        	System.out.println("java "+contact.getFirstName());
+	        	contact.setLastName(rs.getString("LASTNAME"));
+	        	contact.setPhone(rs.getString("PHONE"));
+	        	contact.setEmail(rs.getString("EMAIL"));
+	        	contact.setAddress(rs.getString("ADDRESS"));
+	        	contact.setId(rs.getInt("id"));
+	         }
+	         
+	         request.setAttribute("contact", contact);
+	         RequestDispatcher rd;
+	         rd = request.getRequestDispatcher("/EditContact.jsp");
+	         rd.forward(request, response);
+	         
+	         //put all of the info from SQL into table
+	         //make buttons for navigating to new contact, edit contacts, and 
+	         //search contacts
+	         
 	      } catch (SQLException e) {
 	         e.printStackTrace();
-	      } 
-	      RequestDispatcher rd;
-	      rd = request.getRequestDispatcher("Contacts");
-	      rd.forward(request, response);
-	      response.getWriter().println("finished adding contact");
-	   }
-	
+	      }            		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
 
 }

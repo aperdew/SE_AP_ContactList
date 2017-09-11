@@ -58,7 +58,10 @@
 						<td class ="col-sm-3"></td>
 						<td class ="col-sm-3">
 							<div class="pull-right">
-								<button class="glyphicon glyphicon-pencil btn btn-primary"></button>
+								<form action="GetById" method="GET" class="CL-ContactList--Edit-Form">
+									<input type="hidden" name="id" value="${model.getId() }">
+									<button type="submit" class="glyphicon glyphicon-pencil btn btn-primary"></button>
+								</form>
 								<button class="glyphicon glyphicon-trash btn btn-danger" onclick="deleteById(${model.getId()})"></button>
 							</div>							
 						</td>
