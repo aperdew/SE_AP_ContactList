@@ -46,7 +46,6 @@ public class Search extends HttpServlet {
 		List<contactModel> contactList = new ArrayList<>();
 		String searchQuery = request.getParameter("searchQuery").trim();
 		String[] queryTokens = searchQuery.split(" ");
-	    System.out.println(queryTokens.length);
 	      try {
 	    	  Class.forName("com.mysql.jdbc.Driver");
 	      } catch (ClassNotFoundException e) {
@@ -72,7 +71,6 @@ public class Search extends HttpServlet {
 	    		  selectSQL = "SELECT * FROM contacts "
 	  	         		+ "WHERE FIRSTNAME  LIKE '" + queryTokens[0]+"%' OR LASTNAME  LIKE '" + queryTokens[0]+"%' "
          				+ "OR FIRSTNAME  LIKE '" + queryTokens[1]+"%' OR LASTNAME  LIKE '" + queryTokens[1]+"%';";
-	    		  System.out.println(selectSQL);
 	    	  }
 	         //String theUserName = "Aaron";
 	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
@@ -88,6 +86,7 @@ public class Search extends HttpServlet {
 	        	contact.setAddress(rs.getString("ADDRESS"));
 	        	contact.setId(rs.getInt("id"));
 	            contactList.add(contact);
+	            
 	         }
 	         
 	         request.setAttribute("contactList", contactList);
@@ -98,10 +97,13 @@ public class Search extends HttpServlet {
 	         } else{
 	        	 if(contactList.size()==0){
 	        		 System.out.println("No results returned");
+	        		 rd = request.getRequestDispatcher("/Contacts");
 	        	 } else{
 		        	 System.out.println("One search result returned");
+		        	 request.setAttribute("contact", contactList.get(0));
+		        	 rd = request.getRequestDispatcher("EditContact.jsp");
 	        	 }
-	        	 rd = request.getRequestDispatcher("/Contacts");
+	        	 
 	         }      
 	                 
 	         rd.forward(request, response);

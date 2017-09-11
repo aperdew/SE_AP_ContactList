@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Create
+ * Servlet implementation class Edit
  */
-@WebServlet("/Insert")
-public class Insert extends HttpServlet {
+@WebServlet("/Edit")
+public class Edit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static String             url              = "jdbc:mysql://ec2aperdew.ddns.net:3306/contactList";
 	static String             user             = "Remote";
@@ -27,7 +27,7 @@ public class Insert extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Insert() {
+    public Edit() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,14 +44,15 @@ public class Insert extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		 response.setContentType("text/html;charset=UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		   response.getWriter().println("adding new contact");
 		   
 		   String firstName = request.getParameter("firstName");
 		   String lastName = request.getParameter("lastName");
 		   String phone = request.getParameter("phone");
 		   String email = request.getParameter("email");
 		   String address = request.getParameter("address");
+		   int id = Integer.parseInt(request.getParameter("id"));
 		     
 		      try {
 		    	  Class.forName("com.mysql.jdbc.Driver");
@@ -70,8 +71,9 @@ public class Insert extends HttpServlet {
 		         System.out.println("Failed to make connection!");
 		      }
 		      try {
-		         String selectSQL = "INSERT INTO contacts(FIRSTNAME, LASTNAME, PHONE, EMAIL, ADDRESS)"
-		         		+ "VALUES ('" + firstName + "', '" + lastName + "', '" + phone + "', '" + email +"', '" + address +"');";
+		         String selectSQL = "UPDATE contacts "
+		         		+ "SET FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "', PHONE='" + phone + "', EMAIL='" + email +"', ADDRESS='" + address +"' "
+         				+ "WHERE id = "+id+";";
 		         //String theUserName = "Aaron";
 		         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
 		         //preparedStatement.setString(1, theUserName);
@@ -84,6 +86,7 @@ public class Insert extends HttpServlet {
 		      RequestDispatcher rd;
 		      rd = request.getRequestDispatcher("Contacts");
 		      rd.forward(request, response);
+		
 	}
 
 }

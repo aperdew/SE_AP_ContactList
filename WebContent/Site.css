@@ -36,3 +36,9 @@
 .CL-ContactList--New-Contact-Button{
 	margin-left: 0.250em;
 }
+
+.CL-ContactList--Edit-Form{
+	float:left;
+	white-space:nowrap;
+	margin-right: 0.250em;
+}
