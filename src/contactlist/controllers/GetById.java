@@ -71,7 +71,6 @@ public class GetById extends HttpServlet {
 	         while (rs.next()) {
 	        	 
 	        	contact.setFirstName(rs.getString("FIRSTNAME"));
-	        	System.out.println("java "+contact.getFirstName());
 	        	contact.setLastName(rs.getString("LASTNAME"));
 	        	contact.setPhone(rs.getString("PHONE"));
 	        	contact.setEmail(rs.getString("EMAIL"));
