@@ -101,7 +101,7 @@ public class Search extends HttpServlet {
 	        	 } else{
 		        	 System.out.println("One search result returned");
 		        	 request.setAttribute("contact", contactList.get(0));
-		        	 rd = request.getRequestDispatcher("EditContact.jsp");
+		        	 rd = request.getRequestDispatcher("/EditContact.jsp");
 	        	 }
 	        	 
 	         }      
