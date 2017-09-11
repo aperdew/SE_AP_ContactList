@@ -64,7 +64,8 @@
 									<input type="hidden" name="id" value="${model.getId() }">
 									<button type="submit" class="glyphicon glyphicon-pencil btn btn-primary"></button>
 								</form>
-								<button class="glyphicon glyphicon-trash btn btn-danger" onclick="deleteById(${model.getId()})"></button>
+								<button class="glyphicon glyphicon-trash btn btn-danger" data-toggle="modal"
+									data-target="#CL-ContactList--Delete-Modal" onclick="setId(${model.getId()})"></button>
 							</div>							
 						</td>
 					</tr>					
@@ -74,7 +75,27 @@
 	</table>
 </div>
 
+<!-- Delete Modal -->
+<div id="CL-ContactList--Delete-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">Deletion Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <p class ="text-center">Are you sure you want to delete this contact?</p>    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="setId(0)">Cancel</button>
+        <button class="btn btn-danger" onclick="deleteById()">Confirm</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>

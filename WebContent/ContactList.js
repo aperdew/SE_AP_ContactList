@@ -1,5 +1,9 @@
 var id;
-var deleteById = function(id){	
+var setId = function(input){
+	id = input;
+}
+
+var deleteById = function(){
 	$.ajax({
 		type: "POST",
 		url: "/ContactList/Delete",
