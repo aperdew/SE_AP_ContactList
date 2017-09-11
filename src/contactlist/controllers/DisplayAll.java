@@ -54,7 +54,8 @@ public class DisplayAll extends HttpServlet{
 	         System.out.println("Failed to make connection!");
 	      }
 	      try {
-	         String selectSQL = "SELECT * FROM contacts;";
+	         String selectSQL = "SELECT * FROM contacts "
+	         		+ "ORDER BY LASTNAME;";
 	         //String theUserName = "Aaron";
 	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
 	         //preparedStatement.setString(1, theUserName);
