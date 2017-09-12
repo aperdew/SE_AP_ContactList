@@ -34,15 +34,16 @@
 				<th class ="col-sm-1"></th>
 				<th class ="col-sm-3 CL-ContactList--Button-Panel">
 					<div class="pull-right">
-						<form class="CL-ContactList--Search-Form" action="Search" method=GET>
+						<form id="CL-ContactList--Search-Form" action="Search" method=GET>
 							<div class = "input-group">
-								<input type="text" name="searchQuery" class =" CL-ContactList--Search-Input form-control"
+								<input type="text" name="searchQuery" class =" CL-ContactList--Search-Input "
 									placeholder="Search Contacts">
 								<span class ="input-group-btn">
-									<button type="submit" class="glyphicon glyphicon-search btn btn-info"></button>
+									<button type="button" class="glyphicon glyphicon-search btn btn-info" onclick="checkSearch()"></button>
 								</span>
 							</div>
 						</form>
+						
 						<a href="NewContact.jsp" class="glyphicon glyphicon-plus btn btn-success CL-ContactList--New-Contact-Button"></a>
 					</div>
 					
