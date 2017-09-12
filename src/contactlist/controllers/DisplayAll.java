@@ -34,7 +34,6 @@ public class DisplayAll extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	      response.setContentType("text/html;charset=UTF-8");
-	      response.getWriter().println("getting all contacts");
 	      List<contactModel> contactList = new ArrayList<>();
 	     
 	      try {
@@ -56,9 +55,7 @@ public class DisplayAll extends HttpServlet{
 	      try {
 	         String selectSQL = "SELECT * FROM contacts "
 	         		+ "ORDER BY LASTNAME;";
-	         //String theUserName = "Aaron";
 	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-	         //preparedStatement.setString(1, theUserName);
 	         ResultSet rs = preparedStatement.executeQuery();
 	         while (rs.next()) {
 
@@ -72,14 +69,12 @@ public class DisplayAll extends HttpServlet{
 	            contactList.add(contact);
 	         }
 	         
+	         //Setting the value of contactList, pointing the request dispatcher towards 
+	         // ContactList.jsp and sending the data to that page
 	         request.setAttribute("contactList", contactList);
 	         RequestDispatcher rd;
 	         rd = request.getRequestDispatcher("/ContactList.jsp");
 	         rd.forward(request, response);
-	         
-	         //put all of the info from SQL into table
-	         //make buttons for navigating to new contact, edit contacts, and 
-	         //search contacts
 	         
 	      } catch (SQLException e) {
 	         e.printStackTrace();

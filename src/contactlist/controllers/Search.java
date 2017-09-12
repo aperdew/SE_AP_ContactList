@@ -72,9 +72,7 @@ public class Search extends HttpServlet {
 	  	         		+ "WHERE FIRSTNAME  LIKE '" + queryTokens[0]+"%' OR LASTNAME  LIKE '" + queryTokens[0]+"%' "
          				+ "OR FIRSTNAME  LIKE '" + queryTokens[1]+"%' OR LASTNAME  LIKE '" + queryTokens[1]+"%';";
 	    	  }
-	         //String theUserName = "Aaron";
 	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-	         //preparedStatement.setString(1, theUserName);
 	         ResultSet rs = preparedStatement.executeQuery();
 	         while (rs.next()) {
 

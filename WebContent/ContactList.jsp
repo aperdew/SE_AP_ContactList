@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<!-- The taglib tag is very important.  If its not included, jstl wont work. -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
@@ -51,7 +52,10 @@
 			</tr>
 		</thead>
 		<tbody>
+			<!-- These <c: > are all jstl tags.  use these instead of the java snippets that look like <%  %>  -->
 			<c:if test="${contactList !=null }">
+				<!-- This forEach statement is saying that each item within contactList is called model
+				 and it then loops through contactList -->
 				<c:forEach items = "${contactList}" var="model">
 					<tr>
 						<td class ="col-sm-2">${model.getFirstName()}</td>
