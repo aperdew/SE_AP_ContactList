@@ -72,15 +72,12 @@ public class Insert extends HttpServlet {
 		      try {
 		         String selectSQL = "INSERT INTO contacts(FIRSTNAME, LASTNAME, PHONE, EMAIL, ADDRESS)"
 		         		+ "VALUES ('" + firstName + "', '" + lastName + "', '" + phone + "', '" + email +"', '" + address +"');";
-		         //String theUserName = "Aaron";
 		         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-		         //preparedStatement.setString(1, theUserName);
 		         preparedStatement.executeUpdate();
 		        	         
 		      } catch (SQLException e) {
 		         e.printStackTrace();
-		      } 
-		      response.getWriter().println("finished adding contact");		      
+		      } 	      
 		      RequestDispatcher rd;
 		      rd = request.getRequestDispatcher("Contacts");
 		      rd.forward(request, response);

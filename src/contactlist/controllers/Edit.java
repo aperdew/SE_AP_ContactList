@@ -74,9 +74,7 @@ public class Edit extends HttpServlet {
 		         String selectSQL = "UPDATE contacts "
 		         		+ "SET FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "', PHONE='" + phone + "', EMAIL='" + email +"', ADDRESS='" + address +"' "
          				+ "WHERE id = "+id+";";
-		         //String theUserName = "Aaron";
 		         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-		         //preparedStatement.setString(1, theUserName);
 		         preparedStatement.executeUpdate();
 		        	         
 		      } catch (SQLException e) {

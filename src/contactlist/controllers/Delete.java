@@ -66,9 +66,7 @@ public class Delete extends HttpServlet {
 	      try {
 	         String selectSQL = "DELETE FROM contacts "
 	         		+ "WHERE id = "+id+";";
-	         //String theUserName = "Aaron";
 	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-	         //preparedStatement.setString(1, theUserName);
 	         preparedStatement.executeUpdate();
 	        	         
 	      } catch (SQLException e) {

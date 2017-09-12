@@ -63,9 +63,7 @@ public class GetById extends HttpServlet {
 	      try {
 	         String selectSQL = "SELECT * FROM contacts "
 	         		+ "WHERE id = "+id+";";
-	         //String theUserName = "Aaron";
 	         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-	         //preparedStatement.setString(1, theUserName);
 	         ResultSet rs = preparedStatement.executeQuery();	        	 
 	         contactModel contact = new contactModel();
 	         while (rs.next()) {
@@ -82,10 +80,6 @@ public class GetById extends HttpServlet {
 	         RequestDispatcher rd;
 	         rd = request.getRequestDispatcher("/EditContact.jsp");
 	         rd.forward(request, response);
-	         
-	         //put all of the info from SQL into table
-	         //make buttons for navigating to new contact, edit contacts, and 
-	         //search contacts
 	         
 	      } catch (SQLException e) {
 	         e.printStackTrace();
