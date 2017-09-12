@@ -52,7 +52,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!-- These <c: > are all jstl tags.  use these instead of the java snippets that look like <%  %>  -->
+			<!-- These <c> are all jstl tags.  use these instead of the java snippets that look like <%  %>  -->
 			<c:if test="${contactList !=null }">
 				<!-- This forEach statement is saying that each item within contactList is called model
 				 and it then loops through contactList -->
